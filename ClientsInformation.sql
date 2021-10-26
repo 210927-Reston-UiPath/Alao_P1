@@ -10,10 +10,16 @@ create table orderlist
 (
     clientid int REFERENCES clients(id),
     productName varchar(100) not null,
-    quantity int not null,
-    subtotal int not null
-    
+    quantity int not null
 );
+
+create table leftoverorderlist
+(
+    clientid int REFERENCES clients(id),
+    productName varchar(100) not null,
+    quantity int not null
+);
+
 
 create table shoppingorder
 (
@@ -25,14 +31,15 @@ create table shoppingorder
 
 select * from clients;
 select * from orderlist;
+select * from leftoverorderlist;
 select * from shoppingorder;
 
 
-insert into orderlist(clientid, productName, quantity, subtotal) values ('1','Apple','2','3')
+insert into orderlist(clientid, productName, quantity) values ('4','Veggie','4')
 
-update clients set clientname = 'Garman Lao', phoneNumber = '8001352468', ClientEmail = 'GL@email.com' 
-where id = 7;
+update clients set clientname = 'Garman Lao', phoneNumber = '8001352468', ClientEmail = 'GL@email.com' where id = 7;
 
-Select id from clients where clientname = 'Aaron Lao' and phoneNumber = '4150981230'
+Select * from orderlist where clientid =  '4'
 
-drop table clients
+drop table orderlist 
+Delete from leftoverorderlist where clientid = '4'
