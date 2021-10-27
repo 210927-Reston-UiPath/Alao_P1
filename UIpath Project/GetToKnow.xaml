@@ -8,7 +8,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>784,808</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>815.2,2438.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>GetToKnow_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
@@ -84,44 +84,33 @@
       <x:Boolean x:Key="ShouldExpandAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="GetToKnow" sap:VirtualizedContainerService.HintSize="538.4,743.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="GetToKnow" sap:VirtualizedContainerService.HintSize="825.6,2373.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="ui:DatabaseConnection" Name="serverDB" />
       <Variable x:TypeArguments="sd:DataTable" Name="inputInfo" />
       <Variable x:TypeArguments="x:String" Name="yesno" />
       <Variable x:TypeArguments="sd:DataTable" Name="clients" />
       <Variable x:TypeArguments="x:Boolean" Name="reapet" />
-      <Variable x:TypeArguments="x:Boolean" Name="checkinfo">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:Boolean" />
-        </Variable.Default>
-      </Variable>
+      <Variable x:TypeArguments="x:Boolean" Default="False" Name="checkinfo" />
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="database" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:DatabaseConnect DatabaseConnection="[serverDB]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="496.8,52.8" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL35W">
-      <sap:WorkflowViewStateService.ViewState>
-        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
-          <x:Boolean x:Key="IsPinned">False</x:Boolean>
-        </scg:Dictionary>
-      </sap:WorkflowViewStateService.ViewState>
-    </ui:DatabaseConnect>
-    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[clients]" DisplayName="Execute Query" ExistingDbConnection="[serverDB]" sap:VirtualizedContainerService.HintSize="496.8,52.8" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="Select * from clients">
+    <ui:DatabaseConnect DatabaseConnection="[database]" DisplayName="Connect" sap:VirtualizedContainerService.HintSize="784,60" sap2010:WorkflowViewState.IdRef="DatabaseConnect_2" ProviderName="System.Data.Odbc" ConnectionString="Dsn=PostgreSQL35W" />
+    <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[clients]" DisplayName="Execute Query" ExistingDbConnection="[database]" sap:VirtualizedContainerService.HintSize="784,89.6" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="Select * from clients">
       <ui:ExecuteQuery.Parameters>
         <scg:Dictionary x:TypeArguments="x:String, Argument" />
       </ui:ExecuteQuery.Parameters>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ExecuteQuery>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="496.8,52.8" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Hey, I am shopping assistant, RoSA.&quot; + Environment.NewLine + &#xA;&quot;I would help you to shop.&quot;]">
+    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="784,52.8" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Hey, I am shopping assistant, RoSA.&quot; + Environment.NewLine + &#xA;&quot;I would help you to shop.&quot;]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -129,7 +118,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:MessageBox>
-    <ui:InputDialog OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="496.8,52.8" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="[&quot;First, I need a little information from you.&quot; + Environment.NewLine+&#xA;&quot;Are you a new customer or existed customer?&quot;]" Options="[{&quot;New&quot;,&quot;Exist&quot;}]">
+    <ui:InputDialog OptionsString="{x:Null}" DisplayName="Input Dialog" sap:VirtualizedContainerService.HintSize="784,52.8" sap2010:WorkflowViewState.IdRef="InputDialog_5" IsPassword="False" Label="[&quot;First, I need a little information from you.&quot; + Environment.NewLine+&#xA;&quot;Are you a new customer or existed customer?&quot;]" Options="[{&quot;New&quot;,&quot;Exist&quot;}]">
       <ui:InputDialog.Result>
         <OutArgument x:TypeArguments="x:String">[yesno]</OutArgument>
       </ui:InputDialog.Result>
@@ -145,29 +134,29 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:InputDialog>
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[yesno]" sap:VirtualizedContainerService.HintSize="496.8,279.2" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[yesno]" sap:VirtualizedContainerService.HintSize="784,1803.2" sap2010:WorkflowViewState.IdRef="Switch`1_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <Sequence x:Key="New" sap:VirtualizedContainerService.HintSize="375.2,428.8" sap2010:WorkflowViewState.IdRef="Sequence_25">
+      <Sequence x:Key="New" sap:VirtualizedContainerService.HintSize="1524.8,3744" sap2010:WorkflowViewState.IdRef="Sequence_25">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InterruptibleWhile DisplayName="For error input " sap:VirtualizedContainerService.HintSize="333.6,236" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_9">
+        <ui:InterruptibleWhile DisplayName="For error input " sap:VirtualizedContainerService.HintSize="1483.2,3551.2" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_9">
           <ui:InterruptibleWhile.Body>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_24">
+            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1448,3384" sap2010:WorkflowViewState.IdRef="Sequence_24">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                   <x:Boolean x:Key="IsPinned">False</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <Sequence DisplayName="New Customers" sap:VirtualizedContainerService.HintSize="1406.4,3191.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
+              <Sequence DisplayName="New Customers" sap:VirtualizedContainerService.HintSize="1406.4,3291.2" sap2010:WorkflowViewState.IdRef="Sequence_17">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -374,7 +363,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:ForEachRow>
-                <If Condition="[reapet = True]" sap:VirtualizedContainerService.HintSize="1364.8,1781.6" sap2010:WorkflowViewState.IdRef="If_4">
+                <If Condition="[reapet = True]" sap:VirtualizedContainerService.HintSize="1364.8,1881.6" sap2010:WorkflowViewState.IdRef="If_4">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -389,7 +378,7 @@
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;Found your information&quot; + Environment.NewLine + &#xD;&#xA;&quot;You are not a new Customer&quot; + Environment.NewLine + &#xD;&#xA;&quot;Please Try again. &quot;]" />
+                      <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_7" Text="[&quot;Found your information&quot; + Environment.NewLine + &#xA;&quot;You are not a new Customer&quot; + Environment.NewLine + &#xA;&quot;Please Try again. &quot;]" />
                       <Assign sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="Assign_5">
                         <Assign.To>
                           <OutArgument x:TypeArguments="x:Boolean">[checkinfo]</OutArgument>
@@ -431,7 +420,7 @@
                     </Sequence>
                   </If.Then>
                   <If.Else>
-                    <Sequence sap:VirtualizedContainerService.HintSize="945.6,1632" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                    <Sequence sap:VirtualizedContainerService.HintSize="945.6,1732" sap2010:WorkflowViewState.IdRef="Sequence_16">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -445,7 +434,7 @@
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:MessageBox>
-                      <Sequence DisplayName="Database" sap:VirtualizedContainerService.HintSize="904,1446.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <Sequence DisplayName="Database" sap:VirtualizedContainerService.HintSize="904,1546.4" sap2010:WorkflowViewState.IdRef="Sequence_7">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -454,10 +443,10 @@
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:BuildDataTable DataTable="[inputInfo]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="862.4,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ClientName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;phonenumber&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClientEmail&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
                         <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{username,UserPhone,Useremail}]" DataTable="[inputInfo]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="862.4,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
-                        <ui:InsertDataTable AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" DataTable="[inputInfo]" DisplayName="Insert" ExistingDbConnection="[serverDB]" sap:VirtualizedContainerService.HintSize="862.4,52.8" sap2010:WorkflowViewState.IdRef="InsertDataTable_1" TableName="clients">
+                        <ui:InsertDataTable AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" DataTable="[inputInfo]" DisplayName="Insert" ExistingDbConnection="[database]" sap:VirtualizedContainerService.HintSize="862.4,116" sap2010:WorkflowViewState.IdRef="InsertDataTable_1" TableName="clients">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -470,13 +459,13 @@
                             <InArgument x:TypeArguments="x:Boolean">True</InArgument>
                           </Assign.Value>
                         </Assign>
-                        <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[clients]" DisplayName="Execute Query" ExistingDbConnection="[serverDB]" sap:VirtualizedContainerService.HintSize="862.4,52.8" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" Sql="Select * from clients">
+                        <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[clients]" DisplayName="Execute Query" ExistingDbConnection="[database]" sap:VirtualizedContainerService.HintSize="862.4,89.6" sap2010:WorkflowViewState.IdRef="ExecuteQuery_3" Sql="Select * from clients">
                           <ui:ExecuteQuery.Parameters>
                             <scg:Dictionary x:TypeArguments="x:String, Argument" />
                           </ui:ExecuteQuery.Parameters>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               <x:Boolean x:Key="IsPinned">False</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
@@ -557,16 +546,16 @@
             <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="checkinfo= False" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_3" />
           </ui:InterruptibleWhile.Condition>
         </ui:InterruptibleWhile>
-        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_14" Text="[&quot;Your Cliend ID : &quot; +clientId]" />
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="1483.2,60" sap2010:WorkflowViewState.IdRef="MessageBox_14" Text="[&quot;Your Cliend ID : &quot; +clientId]" />
       </Sequence>
-      <Sequence x:Key="Exist" DisplayName="ClientInfo" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
+      <Sequence x:Key="Exist" DisplayName="ClientInfo" sap:VirtualizedContainerService.HintSize="744,1592.8" sap2010:WorkflowViewState.IdRef="Sequence_22">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             <x:Boolean x:Key="IsPinned">False</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
-        <ui:InterruptibleWhile DisplayName="inputname" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_5">
+        <ui:InterruptibleWhile DisplayName="inputname" sap:VirtualizedContainerService.HintSize="702.4,52.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_5">
           <ui:InterruptibleWhile.Body>
             <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="375.2,334.4" sap2010:WorkflowViewState.IdRef="Sequence_18">
               <sap:WorkflowViewStateService.ViewState>
@@ -603,7 +592,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:InterruptibleWhile>
-        <ui:InterruptibleWhile DisplayName="inputphone" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_7">
+        <ui:InterruptibleWhile DisplayName="inputphone" sap:VirtualizedContainerService.HintSize="702.4,52.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_7">
           <ui:InterruptibleWhile.Body>
             <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="375.2,334.4" sap2010:WorkflowViewState.IdRef="Sequence_20">
               <sap:WorkflowViewStateService.ViewState>
@@ -633,7 +622,7 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:InterruptibleWhile>
-        <ui:InterruptibleWhile DisplayName="inputemail" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_8">
+        <ui:InterruptibleWhile DisplayName="inputemail" sap:VirtualizedContainerService.HintSize="702.4,52.8" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_8">
           <ui:InterruptibleWhile.Body>
             <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="375.2,334.4" sap2010:WorkflowViewState.IdRef="Sequence_21">
               <sap:WorkflowViewStateService.ViewState>
@@ -663,14 +652,14 @@
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
         </ui:InterruptibleWhile>
-        <Sequence DisplayName="existing customer" sap:VirtualizedContainerService.HintSize="333.6,238.4" sap2010:WorkflowViewState.IdRef="Sequence_35">
+        <Sequence DisplayName="existing customer" sap:VirtualizedContainerService.HintSize="702.4,1121.6" sap2010:WorkflowViewState.IdRef="Sequence_35">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               <x:Boolean x:Key="IsPinned">False</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[clients]" DisplayName="CheckName" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
+          <ui:ForEachRow CurrentIndex="{x:Null}" DataTable="[clients]" DisplayName="CheckName" sap:VirtualizedContainerService.HintSize="660.8,52.8" sap2010:WorkflowViewState.IdRef="ForEachRow_3">
             <ui:ForEachRow.Body>
               <ActivityAction x:TypeArguments="sd:DataRow">
                 <ActivityAction.Argument>
@@ -773,10 +762,10 @@
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
           </ui:ForEachRow>
-          <If Condition="[reapet = True]" DisplayName="outputmessage" sap:VirtualizedContainerService.HintSize="200,52.8" sap2010:WorkflowViewState.IdRef="If_14">
+          <If Condition="[reapet = True]" DisplayName="outputmessage" sap:VirtualizedContainerService.HintSize="660.8,936" sap2010:WorkflowViewState.IdRef="If_14">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 <x:Boolean x:Key="IsPinned">False</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
@@ -788,18 +777,18 @@
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_12" Text="[&quot;Found your information&quot; + Environment.NewLine + &#xD;&#xA;&quot;Thank you&quot;]" />
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_12" Text="[&quot;Found your information&quot; + Environment.NewLine + &#xA;&quot;Thank you&quot;]" />
               </Sequence>
             </If.Then>
             <If.Else>
-              <Sequence DisplayName="addname and output id" sap:VirtualizedContainerService.HintSize="200,68.8" sap2010:WorkflowViewState.IdRef="Sequence_34">
+              <Sequence DisplayName="addname and output id" sap:VirtualizedContainerService.HintSize="416.8,786.4" sap2010:WorkflowViewState.IdRef="Sequence_34">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     <x:Boolean x:Key="IsPinned">False</x:Boolean>
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
-                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="375.2,60" sap2010:WorkflowViewState.IdRef="MessageBox_13" Text="[&quot;Sorry, no matching information.&quot;+ Environment.NewLine+&#xD;&#xA;&quot;Adding you now.&quot;]">
+                <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="375.2,60" sap2010:WorkflowViewState.IdRef="MessageBox_13" Text="[&quot;Sorry, no matching information.&quot;+ Environment.NewLine+&#xA;&quot;Adding you now.&quot;]">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -807,7 +796,7 @@
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                 </ui:MessageBox>
-                <Sequence DisplayName="Database" sap:VirtualizedContainerService.HintSize="375.2,493.6" sap2010:WorkflowViewState.IdRef="Sequence_33">
+                <Sequence DisplayName="Database" sap:VirtualizedContainerService.HintSize="375.2,593.6" sap2010:WorkflowViewState.IdRef="Sequence_33">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -816,21 +805,21 @@
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:BuildDataTable DataTable="[inputInfo]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_2" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;ClientName&quot; msdata:Caption=&quot;&quot; minOccurs=&quot;0&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;phonenumber&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;ClientEmail&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
                   <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{username,UserPhone,Useremail}]" DataTable="[inputInfo]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="AddDataRow_2" />
-                  <ui:InsertDataTable AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" DataTable="[inputInfo]" DisplayName="Insert" ExistingDbConnection="[serverDB]" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="InsertDataTable_2" TableName="clients">
+                  <ui:InsertDataTable AffectedRecords="{x:Null}" ContinueOnError="{x:Null}" DataTable="[inputInfo]" DisplayName="Insert" ExistingDbConnection="[database]" sap:VirtualizedContainerService.HintSize="333.6,116" sap2010:WorkflowViewState.IdRef="InsertDataTable_2" TableName="clients">
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InsertDataTable>
-                  <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[clients]" DisplayName="Execute Query" ExistingDbConnection="[serverDB]" sap:VirtualizedContainerService.HintSize="333.6,52.8" sap2010:WorkflowViewState.IdRef="ExecuteQuery_4" Sql="Select * from clients">
+                  <ui:ExecuteQuery ContinueOnError="{x:Null}" TimeoutMS="{x:Null}" CommandType="Text" DataTable="[clients]" DisplayName="Execute Query" ExistingDbConnection="[database]" sap:VirtualizedContainerService.HintSize="333.6,89.6" sap2010:WorkflowViewState.IdRef="ExecuteQuery_4" Sql="Select * from clients">
                     <ui:ExecuteQuery.Parameters>
                       <scg:Dictionary x:TypeArguments="x:String, Argument" />
                     </ui:ExecuteQuery.Parameters>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         <x:Boolean x:Key="IsPinned">False</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
@@ -905,8 +894,9 @@
             </If.Else>
           </If>
         </Sequence>
-        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="MessageBox_15" Text="[&quot;Your Cliend ID : &quot; +clientId]" />
+        <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" DisplayName="Message Box" sap:VirtualizedContainerService.HintSize="702.4,60" sap2010:WorkflowViewState.IdRef="MessageBox_15" Text="[&quot;Your Cliend ID : &quot; +clientId]" />
       </Sequence>
     </Switch>
+    <ui:DatabaseDisconnect DatabaseConnection="[database]" DisplayName="Disconnect" sap:VirtualizedContainerService.HintSize="784,22.4" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
   </Sequence>
 </Activity>
