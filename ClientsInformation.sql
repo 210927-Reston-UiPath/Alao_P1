@@ -2,29 +2,30 @@ create table clients
 (
     id serial primary key,
     ClientName varchar(100) not null,
-    PhoneNumber varchar(15) not null,
-    ClientEmail varchar(20) not null
+    PhoneNumber varchar(100) not null,
+    ClientEmail varchar(100) not null
 );
 
 create table orderlist 
 (
     clientid int REFERENCES clients(id),
-    productName varchar(30) not null,
+    productName varchar(100) not null,
     quantity int not null
 );
 
 create table leftoverorderlist
 (
     clientid int REFERENCES clients(id),
-    productName varchar(30) not null,
+    productName varchar(100) not null,
     quantity int not null
 );
 
 create table states
 (
     clientid int REFERENCES clients(id),
-    productName varchar(30) not null,
-    statesofItem varchar(20) not null
+    productName varchar(100) not null,
+    quantity int not null,
+    statesofItem varchar(100) not null
 );
 
 create table shoppingorder
@@ -32,10 +33,12 @@ create table shoppingorder
     orderid serial primary key,
     clientid int REFERENCES clients(id),
     ClientName varchar(100) not null,
-    PhoneNumber varchar(15) not null,
-    ClientEmail varchar(20) not null,
-    datetime1 varchar(20) not null,
-    total varchar(20) not null
+    PhoneNumber varchar(100) not null,
+    ClientEmail varchar(100) not null,
+    datetime1 varchar(100) not null,
+    pegaCost varchar(100) not null,
+    GSCost varchar(100) not null,
+    total varchar(100) not null
 );
 
 select * from clients;
