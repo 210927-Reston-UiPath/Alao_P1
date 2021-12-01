@@ -43,5 +43,4 @@ a solo project
 
 ## License
 
-This project uses the following license: [<license_name>](<link>).
-
+This project uses the following license: UiPath Academic Alliance Studio 2020.10.
