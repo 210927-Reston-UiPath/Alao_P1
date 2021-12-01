@@ -2,43 +2,44 @@
 
 ## Project Description
 
-Here goes your awesome project description!
+RoSA is a robotic shopping assistant, here to help you automate your shopping business. RoSA helps you shop for all your customers from online vendors. It provides customers individual expense reports sent via email. RoSA is also able to help you add more customers to your existing clientele for your growing business.
 
 ## Technologies Used
 
-* Tech 1 - version 1.0
-* Tech 2 - version 2.0
-* Tech 3 - version 3.0
+* Uipath Studio
+* VS code
+* HTML, CSS, JS
 
 ## Features
 
-List of features ready and TODOs for future development
-* Awesome feature 1
-* Awesome feature 2
-* Awesome feature 3
+* It will read an Excel file and take orders from the sheet.
+* It will let the user know if somethings are missing or out of stock.
+* It will record all the shopping status in the excel file and send a mail to the user.
+* Clear up SQL data for each run.
+* Client information should be stored in a DB
+* Vendor information should be stored in a webpage
+* Expense Reports should be stored in a DB
+* Automations should have exception handling enabled
+* DB tables should be 3NF
 
 To-do list:
-* Wow improvement to be done 1
-* Wow improvement to be done 2
+* A able to run in the Orchestrator
+* Make it to be able to take multiple clients
+* Clear up more data in SQL
+
 
 ## Getting Started
    
-(include git clone command)
-(include all environment setup steps)
-
-> Be sure to include BOTH Windows and Unix command  
-> Be sure to mention if the commands only work on a specific platform (eg. AWS, GCP)
-
-- All the `code` required to get started
-- Images of what it should look like
+* Download the code from GitHub
+* unzip it and open it in Uipath studio
+* Connect to SQL and creat the tables
 
 ## Usage
 
-> Here, you instruct other people on how to use your project after they’ve installed it. This would also be a good place to include screenshots of your project in action.
-
+> Place your orders in orderlist.xlsx. Then, go back to Uipath Studio main, and run the file.
 ## Contributors
 
-> Here list the people who have contributed to this project. (ignore this section, if its a solo project)
+a solo project
 
 ## License
 
